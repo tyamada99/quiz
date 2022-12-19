@@ -8,7 +8,7 @@ function 出題 (問題: string, 答え: string) {
     }
     if (回答 == 答え) {
         basic.showIcon(IconNames.Yes)
-        music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.UntilDone)
+        music.playSoundEffect(music.builtinSoundEffect(soundExpression.hello), SoundExpressionPlayMode.UntilDone)
     } else {
         basic.showIcon(IconNames.No)
         music.playSoundEffect(music.builtinSoundEffect(soundExpression.sad), SoundExpressionPlayMode.UntilDone)
@@ -27,6 +27,8 @@ let 回答 = ""
 問題[1] = "apple"
 答え[1] = "B"
 let 問題数 = 問題.length
-for (let カウンター = 0; カウンター <= 問題数 - 1; カウンター++) {
-    出題(問題[カウンター], 答え[カウンター])
-}
+basic.forever(function () {
+    for (let カウンター = 0; カウンター <= 問題数 - 1; カウンター++) {
+        出題(問題[カウンター], 答え[カウンター])
+    }
+})
